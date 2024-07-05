@@ -6,8 +6,6 @@ import { AuthModule } from './auth/auth.module';
 import config from './config';
 import { enviroments } from './environments';
 import { UsersModule } from './users/users.module';
-import { HealthManagementModule } from './health-management/health-management.module';
-import { RecommendModule } from './recommend/recommend.module';
 
 @Module({
   imports: [
@@ -42,8 +40,6 @@ import { RecommendModule } from './recommend/recommend.module';
     }),
     UsersModule,
     AuthModule,
-    HealthManagementModule,
-    RecommendModule,
   ],
   controllers: [],
   providers: [],
