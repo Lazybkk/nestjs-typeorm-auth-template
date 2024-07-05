@@ -9,7 +9,7 @@ async function bootstrap() {
   const configService = app.get(ConfigService);
 
   const enableCors = configService.get<boolean>('ENABLE_CORS');
-  const port = configService.get<number>('DATABASE_PORT');
+  const port = configService.get<number>('SERVER_PORT');
 
   if (enableCors) {
     app.enableCors();
@@ -25,6 +25,8 @@ async function bootstrap() {
       },
     }),
   );
+
+  app.setGlobalPrefix('api/v1'); // Global prefix
 
   const config = new DocumentBuilder() //SWAGGER
     .setTitle('API')
