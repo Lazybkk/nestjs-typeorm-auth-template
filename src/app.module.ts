@@ -6,9 +6,14 @@ import { AuthModule } from './auth/auth.module';
 import config from './config';
 import { enviroments } from './environments';
 import { UsersModule } from './users/users.module';
+import { EmployeeModule } from './employee/employee.module';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
+    MulterModule.register({
+      dest: './uploads', // Specify the upload directory
+    }),
     ConfigModule.forRoot({
       envFilePath: enviroments[process.env.NODE_ENV] || '.env',
       load: [config],
@@ -40,6 +45,7 @@ import { UsersModule } from './users/users.module';
     }),
     UsersModule,
     AuthModule,
+    EmployeeModule,
   ],
   controllers: [],
   providers: [],
